@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ideal Societies — South Korea: Building Democracy</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FDFAF6;--text:#1A1A1A;--accent-orange:#E8451C;--accent-pink:#E91E90;--accent-yellow:#F5C518;--accent-terra:#C4572A;--accent-olive:#6B7D3A;--surface:#FFFFFF;--border:#E8E0D8;--muted:#8C7E72}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+.gradient-bar{height:5px;background:linear-gradient(90deg,#E91E90,#E8451C,#F5C518)}
+.container{max-width:900px;margin:0 auto;padding:1.5rem}
+h1{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:2.2rem;letter-spacing:1px;margin-top:1.5rem}
+.subtitle{font-size:1.15rem;color:var(--accent-terra);font-weight:600;margin:0.3rem 0 0.5rem}
+.intro-text{color:var(--muted);margin-bottom:2rem;font-size:0.95rem}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--accent-orange),var(--accent-pink));color:#fff;font-weight:700;font-size:0.75rem;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:0.5px;margin-right:6px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.card h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:1.3rem;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem}
+.step-number{background:var(--accent-orange);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;flex-shrink:0}
+.card p,.card li{margin-bottom:0.5rem}
+.card ul{padding-left:1.2rem}
+.highlight-box{background:#FFF8ED;border-left:4px solid var(--accent-yellow);padding:0.8rem 1rem;border-radius:0 8px 8px 0;margin:1rem 0;font-size:0.95rem}
+.key-question{background:linear-gradient(135deg,rgba(232,69,28,0.08),rgba(233,30,144,0.05));border:1px solid rgba(232,69,28,0.2);padding:1rem 1.2rem;border-radius:10px;margin:1rem 0;font-weight:600;font-size:1.05rem;text-align:center}
+.accordion-header{background:none;border:1px solid var(--border);border-radius:8px;padding:0.8rem 1rem;width:100%;text-align:left;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:1rem;font-weight:600;color:var(--text);display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;transition:border-color 0.2s}
+.accordion-header:hover,.accordion-header:focus{border-color:var(--accent-orange);outline:none}
+.accordion-header .chevron{transition:transform 0.3s;font-size:0.8rem;color:var(--muted)}
+.accordion-header.open .chevron{transform:rotate(180deg)}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height 0.5s ease;padding:0 1rem}
+.accordion-content.open{max-height:1200px;padding:0.5rem 1rem 1rem}
+.accordion-content p{font-size:0.93rem;color:#444;margin-bottom:0.5rem}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px;margin:1rem 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:1.2rem;cursor:pointer}
+.timeline-dot{position:absolute;left:-24px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--border);border:2px solid var(--surface);transition:background 0.3s}
+.timeline-item.active .timeline-dot{background:var(--accent-orange)}
+.timeline-header{font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:6px}
+.timeline-years{font-size:0.8rem;color:var(--muted);font-weight:400}
+.timeline-detail{max-height:0;overflow:hidden;transition:max-height 0.4s ease;font-size:0.9rem;color:#555;padding-right:0.5rem}
+.timeline-item.active .timeline-detail{max-height:400px;margin-top:0.4rem}
+
+/* Quiz */
+.quiz-option{display:block;width:100%;background:var(--surface);border:2px solid var(--border);border-radius:8px;padding:0.7rem 1rem;margin:0.4rem 0;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:0.95rem;text-align:left;transition:border-color 0.2s,background 0.2s}
+.quiz-option:hover{border-color:var(--accent-orange)}
+.quiz-option.correct{border-color:var(--accent-olive);background:#F0F7E8}
+.quiz-option.incorrect{border-color:#D4443E;background:#FFF0EF}
+.quiz-option.dimmed{opacity:0.5;pointer-events:none}
+.quiz-feedback{margin:0.5rem 0;padding:0.6rem 1rem;border-radius:8px;font-size:0.9rem;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.correct-fb{background:#F0F7E8;border:1px solid #B5D89A}
+.quiz-feedback.incorrect-fb{background:#FFF0EF;border:1px solid #E8A8A4}
+
+.btn{display:inline-block;background:var(--accent-orange);color:#fff;border:none;border-radius:8px;padding:0.6rem 1.4rem;font-family:'Source Sans 3',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:background 0.2s}
+.btn:hover{background:var(--accent-pink)}
+.btn-small{padding:0.4rem 1rem;font-size:0.85rem}
+
+.progress-bar-container{background:#F0EDE8;border-radius:20px;height:8px;margin:1.5rem 0 0.5rem;overflow:hidden}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent-yellow),var(--accent-orange));border-radius:20px;transition:width 0.5s ease;width:0%}
+.progress-text{font-size:0.8rem;color:var(--muted);text-align:right}
+a{color:var(--accent-orange);text-decoration:none;font-weight:600}
+a:hover{color:var(--accent-pink);text-decoration:underline}
+.external-link{display:inline-flex;align-items:center;gap:4px}
+.external-link::after{content:'↗';font-size:0.8em}
+.footer-note{text-align:center;font-size:0.82rem;color:var(--muted);margin-top:2rem;padding-bottom:1rem}
+@media(max-width:700px){h1{font-size:1.6rem}.container{padding:1rem}}
+</style>
+</head>
+<body>
+<div class="gradient-bar"></div>
+<div class="container">
+
+<h1>South Korea: Building Democracy</h1>
+<p class="subtitle">Ideal Societies — Week 5 Preparation · Homework</p>
+<p class="intro-text">
+  Next lesson, you'll produce a creative piece about South Korea's democratic transition. To do that well, you need to know the story first. Work through the three steps below <strong>before Wednesday's class</strong>. You'll arrive ready to hit the ground running.
+</p>
+
+<div class="progress-bar-container"><div class="progress-bar-fill" id="progressBar"></div></div>
+<p class="progress-text" id="progressText">0 of 3 steps completed</p>
+
+<!-- ==================== STEP 1 ==================== -->
+<div class="card" id="step1">
+  <h2><span class="step-number">1</span> The Context: Why South Korea?</h2>
+  <p><span class="badge">~10 min</span></p>
+
+  <p>South Korea is one of the most remarkable stories of democratic transition in modern history. In just a few decades, it went from military dictatorship to a thriving democracy with one of the highest HDIs in the world (0.937 in 2023).</p>
+
+  <p>But it didn't happen automatically. Citizens had to fight for it.</p>
+
+  <div class="key-question">How can a non-democratic society become a democracy? And what quality of an ideal society does that reveal?</div>
+
+  <p><strong>Watch this first:</strong> This short video covers the recent martial law crisis and impeachment of President Yoon in December 2024 — a reminder that even established democracies face threats.</p>
+
+  <div class="highlight-box">
+    <strong>Video:</strong> <a href="https://www.youtube.com/results?search_query=south+korea+martial+law+yoon+impeachment+2024" target="_blank" class="external-link">Search: South Korea martial law Yoon impeachment 2024</a><br>
+    <span style="font-size:0.85rem;color:var(--muted)">(Your teacher may provide a specific link on the Resource Stream. If not, find a news summary under 5 minutes.)</span>
+  </div>
+
+  <p>After watching, think about this: South Korea has been a democracy for less than 40 years. The Yoon crisis shows that democracy is something that has to be actively maintained — it's not a permanent achievement. Now let's look at how it was built.</p>
+
+  <div style="margin-top:1rem;text-align:right">
+    <button class="btn btn-small" onclick="completeStep(1)">I've watched the video → Continue</button>
+  </div>
+</div>
+
+<!-- ==================== STEP 2 ==================== -->
+<div class="card" id="step2" style="opacity:0.5;pointer-events:none">
+  <h2><span class="step-number">2</span> The Presidents: A Timeline of Power</h2>
+  <p><span class="badge">~15 min</span></p>
+
+  <p>Before the 1987 democratic transition, South Korea was ruled by a series of authoritarian leaders. Click each president below to learn how they came to power, how long they ruled, and how they left. Look for patterns.</p>
+
+  <div class="timeline" id="timeline">
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">Syngman Rhee <span class="timeline-years">(1948–1960)</span></div>
+      <div class="timeline-detail">
+        <p><strong>How he came to power:</strong> Elected as the first president of South Korea in 1948, with strong US support during the early Cold War. He had spent decades in exile in the US lobbying for Korean independence.</p>
+        <p><strong>How he ruled:</strong> Increasingly authoritarian over 12 years. He amended the constitution to extend his presidency, suppressed opposition, and rigged the 1960 election.</p>
+        <p><strong>How he left power:</strong> The April Revolution of 1960 — mass student protests against election fraud forced him to resign. He fled to Hawaii, where he died in exile.</p>
+        <p style="color:var(--accent-terra);font-weight:600">Pattern to notice: Citizens protested and removed him. But democracy didn't last — a military coup followed within a year.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">Park Chung Hee <span class="timeline-years">(1961–1979)</span></div>
+      <div class="timeline-detail">
+        <p><strong>How he came to power:</strong> Military coup in 1961. He seized control from the short-lived democratic government that followed Rhee's removal.</p>
+        <p><strong>How he ruled:</strong> 18 years of authoritarian rule. He drove rapid industrialisation (the "Miracle on the Han River") but crushed political opposition. In 1972 he declared martial law and rewrote the constitution to give himself permanent power (the Yushin Constitution).</p>
+        <p><strong>How he left power:</strong> Assassinated in 1979 by the director of his own intelligence agency during a private dinner. The motive remains debated.</p>
+        <p style="color:var(--accent-terra);font-weight:600">Pattern to notice: Economic development happened under dictatorship. Does a high standard of living require democracy? This connects to the HDI questions from Weeks 1–2.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">Chun Doo Hwan <span class="timeline-years">(1980–1988)</span></div>
+      <div class="timeline-detail">
+        <p><strong>How he came to power:</strong> Another military coup, just months after Park's assassination. He declared martial law and violently suppressed the Gwangju Uprising in May 1980, killing hundreds of pro-democracy protesters.</p>
+        <p><strong>How he ruled:</strong> 8 years of military rule. He continued economic development but maintained strict control over media, opposition parties, and civil liberties.</p>
+        <p><strong>How he left power:</strong> The June 1987 protests (which you'll read about in Step 3) forced his regime to agree to democratic reforms. He left office in 1988 and was later convicted of treason and corruption.</p>
+        <p style="color:var(--accent-terra);font-weight:600">Pattern to notice: The Gwangju massacre was a turning point — it radicalised a generation of Korean citizens and planted the seeds for the 1987 protests.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item" onclick="toggleTimeline(this)">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">Roh Tae Woo <span class="timeline-years">(1988–1993)</span></div>
+      <div class="timeline-detail">
+        <p><strong>How he came to power:</strong> He was Chun's chosen successor and a former military general. But under massive public pressure from the June 1987 protests, he announced the "June 29 Declaration" — agreeing to direct presidential elections, freedom of the press, and other democratic reforms.</p>
+        <p><strong>How he ruled:</strong> South Korea's first democratically elected president (in a genuinely contested election). His presidency was a transitional period — not fully democratic, but far more open than what came before.</p>
+        <p><strong>How he left power:</strong> He completed his term and left office peacefully — the first Korean president to do so. He was later convicted of corruption and accepting bribes.</p>
+        <p style="color:var(--accent-terra);font-weight:600">Pattern to notice: The transition happened because of citizen pressure, but it was also made possible because someone within the system chose to concede. Change required both citizen agency AND structural flexibility.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:1rem;font-size:1rem">Quick check</h3>
+  <div id="quiz1">
+    <p style="font-weight:600;margin:0.6rem 0 0.3rem">What pattern do you see across these four leaders?</p>
+    <button class="quiz-option" onclick="checkQuiz('q1',this,false)">Each president was more democratic than the last.</button>
+    <button class="quiz-option" onclick="checkQuiz('q1',this,true)">Citizens repeatedly demanded democracy, but the system kept reverting to authoritarian rule until 1987.</button>
+    <button class="quiz-option" onclick="checkQuiz('q1',this,false)">The economy got worse under each president.</button>
+    <button class="quiz-option" onclick="checkQuiz('q1',this,false)">The US controlled who became president each time.</button>
+    <div class="quiz-feedback correct-fb" id="q1-correct">Exactly. The cycle of protest → authoritarian response → protest again shows that democracy isn't a one-time achievement. It took nearly 40 years of citizen pressure before the system finally changed in 1987.</div>
+    <div class="quiz-feedback incorrect-fb" id="q1-incorrect">Not quite — look at the pattern again. What kept happening each time citizens pushed for change? And what was different in 1987?</div>
+  </div>
+
+  <div style="margin-top:1rem;text-align:right">
+    <button class="btn btn-small" onclick="completeStep(2)">I've read all four presidents → Continue</button>
+  </div>
+</div>
+
+<!-- ==================== STEP 3 ==================== -->
+<div class="card" id="step3" style="opacity:0.5;pointer-events:none">
+  <h2><span class="step-number">3</span> June 1987: The Protests That Changed Everything</h2>
+  <p><span class="badge">~15 min</span></p>
+
+  <p>This is the story you'll work with in class on Wednesday. Read carefully — you'll be producing a creative piece (news article, broadcast, or fact sheet) based on this material.</p>
+
+  <div class="highlight-box">
+    <strong>Read the article on the Resource Stream</strong> about the protests from June 10 to June 29, 1987.<br>
+    <span style="font-size:0.85rem;color:var(--muted)">If you can't find it, use these sources:</span><br>
+    <a href="https://www.koreasociety.org" target="_blank" class="external-link">Korea Society educational resources</a><br>
+    <a href="https://en.wikipedia.org/wiki/June_Democratic_Struggle" target="_blank" class="external-link">Wikipedia: June Democratic Struggle</a>
+  </div>
+
+  <p><strong>As you read, think about these four questions</strong> (you'll answer them in class):</p>
+
+  <button class="accordion-header" onclick="toggleAccordion(this)">
+    <span>1. What caused the protests?</span>
+    <span class="chevron">▼</span>
+  </button>
+  <div class="accordion-content">
+    <p>Think about: What was life like under Chun Doo Hwan? What specific events triggered the protests in June 1987? (Hint: look for the death of a student and Chun's attempt to block constitutional reform.)</p>
+  </div>
+
+  <button class="accordion-header" onclick="toggleAccordion(this)">
+    <span>2. Who was involved?</span>
+    <span class="chevron">▼</span>
+  </button>
+  <div class="accordion-content">
+    <p>Think about: Was it just students? What other groups joined? Why was it significant that middle-class citizens and workers also participated?</p>
+  </div>
+
+  <button class="accordion-header" onclick="toggleAccordion(this)">
+    <span>3. What was the result?</span>
+    <span class="chevron">▼</span>
+  </button>
+  <div class="accordion-content">
+    <p>Think about: What was the June 29 Declaration? What did Roh Tae Woo agree to? How did this change South Korea's political system?</p>
+  </div>
+
+  <button class="accordion-header" onclick="toggleAccordion(this)">
+    <span>4. What does this tell you about power and citizen voice in ideal societies?</span>
+    <span class="chevron">▼</span>
+  </button>
+  <div class="accordion-content">
+    <p>This is the big question — the one that connects South Korea to our unit. Think about: Can citizens create systemic change? What conditions made it possible? What role did citizen agency play vs structural factors?</p>
+    <p>You might want to connect this to the conceptual understanding: <em>"Change requires both structural conditions and human agency."</em></p>
+  </div>
+
+  <div style="margin-top:1rem;text-align:right">
+    <button class="btn btn-small" onclick="completeStep(3)">I've read the article and thought about the questions ✓</button>
+  </div>
+</div>
+
+<!-- ==================== COMPLETE ==================== -->
+<div class="card" id="whatsNext" style="display:none;border-left:4px solid var(--accent-olive)">
+  <h2 style="color:var(--accent-olive)">✓ Ready for Wednesday</h2>
+  <p>You now know the story of South Korea's democratic transition — from Syngman Rhee in 1948 to the June 1987 protests that finally broke the cycle of authoritarian rule.</p>
+
+  <p><strong>In Wednesday's class, you'll:</strong></p>
+  <ul>
+    <li>Start with a quick recall check (5 min)</li>
+    <li>Produce a creative piece — a news article, news broadcast, or fact sheet — about the June 1987 protests (30 min)</li>
+    <li>Discuss what South Korea tells us about citizen agency and accountability as factors of ideal societies (10 min)</li>
+  </ul>
+
+  <div class="highlight-box">
+    <strong>New factors coming:</strong><br>
+    <strong style="color:var(--accent-orange)">Accountability / Resilience</strong> — systems need to be strong enough to survive attacks on democracy<br>
+    <strong style="color:var(--accent-orange)">Citizen Agency</strong> — people can demand and create change (for better or worse)
+  </div>
+
+  <p style="font-size:0.9rem;color:var(--muted);margin-top:0.8rem">Your Factors List will grow to 11 factors after Wednesday. You're building toward the summative research paper — start thinking about which factors interest you most.</p>
+</div>
+
+<p class="footer-note">
+  Ideal Societies · MYP3 I&S · Week 5 Homework<br>
+  Sources: Korea Society, Wilson Center, Britannica, VOA News, Asia Media Center
+</p>
+
+</div>
+<div class="gradient-bar"></div>
+
+<script>
+let stepsCompleted = new Set();
+
+function toggleAccordion(btn) {
+  const content = btn.nextElementSibling;
+  const isOpen = content.classList.contains('open');
+  content.classList.toggle('open');
+  btn.classList.toggle('open');
+  btn.setAttribute('aria-expanded', !isOpen);
+}
+
+function toggleTimeline(item) {
+  const wasActive = item.classList.contains('active');
+  // close all
+  document.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
+  if (!wasActive) item.classList.add('active');
+}
+
+function checkQuiz(qId, btn, correct) {
+  const container = btn.parentElement;
+  const options = container.querySelectorAll('.quiz-option');
+  const correctFb = document.getElementById(qId + '-correct');
+  const incorrectFb = document.getElementById(qId + '-incorrect');
+  if (correct) {
+    btn.classList.add('correct');
+    options.forEach(o => { if (o !== btn) o.classList.add('dimmed'); });
+    correctFb.classList.add('show');
+    incorrectFb.classList.remove('show');
+  } else {
+    btn.classList.add('incorrect');
+    incorrectFb.classList.add('show');
+    setTimeout(() => { btn.classList.remove('incorrect'); incorrectFb.classList.remove('show'); }, 3000);
+  }
+}
+
+function completeStep(n) {
+  stepsCompleted.add(n);
+  const total = stepsCompleted.size;
+  document.getElementById('progressBar').style.width = (total / 3 * 100) + '%';
+  document.getElementById('progressText').textContent = total + ' of 3 steps completed';
+  if (n < 3) {
+    const next = document.getElementById('step' + (n + 1));
+    next.style.opacity = '1';
+    next.style.pointerEvents = 'auto';
+    next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (total === 3) {
+    document.getElementById('whatsNext').style.display = 'block';
+    document.getElementById('whatsNext').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+</script>
+</body>
+</html>
